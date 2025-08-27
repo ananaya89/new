@@ -1,0 +1,23 @@
+name: Run Node File
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Checks out your repository's code so the runner can access it
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      # Step 2: Sets up the Node.js environment on the runner
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # You can change this to any version you need
+
+      # Step 3: Runs the index.js file using the 'node' command
+      - name: Run the Node.js file
+        run: node index.js
